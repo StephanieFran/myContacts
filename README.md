@@ -1,62 +1,64 @@
 <h1 align="center">MyContacts</h1>
 
-Uma API Node.js para criar e categorizar contatos, com Express e Postgres(Docker). Desenvolvido como projeto de estudo.
+Uma API Node.js para criar e categorizar contatos, com Express e Postgres(Docker). Desenvolvido como projeto de estudo na Formação Fullstack, da plataforma JStack.
 
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
 
 ## :hammer_and_wrench: Tecnologias
 Ferramentas usadas na construção do projeto:
-- [Node.js (v20.17.0)](<https://nodejs.org/en/>)
-- [npm (v10.8.2)](https://www.npmjs.com/)
-- Express ()
-- Docker ()
+- [Node.js (v22.12.0)](<https://nodejs.org/en/>)
+- [npm (v10.9.2)](https://www.npmjs.com/)
+- [Express (v4.21.2)](https://expressjs.com/)
+- [Docker (v27.4.0)](https://www.docker.com/)
 
 Ferramentas usadas no desenvolvimento do projeto:
-- [VSCode (v1.95.3)](https://code.visualstudio.com/)
-- [Insomnia(v10.2.0)](https://insomnia.rest/)
-- Yarn ()
-- Nodemon ()
-- ESLint ()
-- EditorConfig ()
+- [VSCode (v1.96.3)](https://code.visualstudio.com/)
+- [Insomnia(v10.3.0)](https://insomnia.rest/)
+- [Yarn (v1.22.21)](https://classic.yarnpkg.com/lang/en/)
+- [Nodemon (v3.1.9)](https://www.npmjs.com/package/nodemon)
+- ESLint
+- EditorConfig
 
 ## :computer: Funcionalidades e Demonstração da Aplicação
 
 Controllers:
 
-- `index()`: 
+- `index()`: método para listar registros existentes
 
-- `show()`: 
+- `show()`: método para buscar registro por parâmetros(IDs, email, nome)
 
-- `store()`:  
+- `store()`: método para criar novo registro
 
-- `update()`:
+- `update()`: método para atualizar um registro
 
-- `delete()`:
+- `delete()`: método para apagar um registro
 
 Repositories:
 
-- `findAll()`: 
+- `findAll()`: Lista todos os contatos/categorias cadastrados
 
-- `findById()`: 
+- `findById()`: Retorna um contato/categoria com ID correspondente
 
-- `findByEmail()`:
+- `findByEmail()`: Retorna um contato com email correspondente
 
-- `create()`:
+- `findByName()`: Retorna uma categoria com nome correspondente
 
-- `update()`:
+- `create()`: Cria um novo contato/categoria
 
-- `delete()`:
+- `update()`: Atualiza dados de um contato/categoria existente
+
+- `delete()`: Deleta contato/categoria com ID correspondente
 
 ## :open_file_folder: Acesso ao Projeto
 ```
-#Baixar arquivos
-$ 
+#Baixar arquivos manualmente ou clonar repositório
+$ git clone [url_projeto]
 ```
 
 ## :gear: Executar
 ```
-#
-$
+#Abrir projeto e executar aplicação no terminal do VSCode
+$ yarn dev
 ```
 
 No Insomina testar as rotas GET, POST, PUT e DELETE com a seguintes URLs:
