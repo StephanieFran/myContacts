@@ -57,7 +57,10 @@ $ git clone [url_projeto]
 
 ## :gear: Executar
 ```
-#Abrir projeto e executar aplicação no terminal do VSCode
+# Instalar o Docker, baixar img do Postgres, criar container e deixar executando
+# Estruturar banco de dados conforme schema.sql
+# Abrir projeto e executar aplicação no terminal do VSCode
+$ yarn init
 $ yarn dev
 ```
 
