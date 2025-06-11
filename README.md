@@ -1,6 +1,7 @@
 <h1 align="center">MyContacts</h1>
 
 Uma API Node.js para criar e categorizar contatos, com Express e Postgres(Docker). Desenvolvido como projeto de estudo na Formação Fullstack, da plataforma JStack.
+O desafio proposto neste projeto foi desenvolver o CRUD das categorias.
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
 
@@ -60,7 +61,7 @@ $ git clone [url_projeto]
 # Instalar o Docker, baixar img do Postgres, criar container e deixar executando
 # Estruturar banco de dados conforme schema.sql
 # Abrir projeto e executar aplicação no terminal do VSCode
-$ yarn init
+$ yarn install
 $ yarn dev
 ```
 
