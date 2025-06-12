@@ -10,7 +10,8 @@ Ferramentas usadas na construção do projeto:
 - [Node.js (v22.12.0)](<https://nodejs.org/en/>)
 - [npm (v10.9.2)](https://www.npmjs.com/)
 - [Express (v4.21.2)](https://expressjs.com/)
-- [Docker (v27.4.0)](https://www.docker.com/)
+- [Docker (v28.1.1)](https://www.docker.com/)
+- [Docker Desktop (v4.41.2)](https://www.docker.com/products/docker-desktop/)
 
 Ferramentas usadas no desenvolvimento do projeto:
 - [VSCode (v1.96.3)](https://code.visualstudio.com/)
