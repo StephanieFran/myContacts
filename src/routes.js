@@ -6,6 +6,11 @@ const ContactController = require('./app/controllers/ContactController');
 
 const CategoryController = require('./app/controllers/CategoryController');
 
+//Health route - Health route - for API availability testing
+router.get('/ping', (request, response) => {
+  response.json({ pong: true });
+});
+
 //Contacts routes
 router.get('/contacts',ContactController.index);
 

@@ -9,16 +9,18 @@ O desafio proposto neste projeto foi desenvolver o CRUD das categorias.
 Ferramentas usadas na construção do projeto:
 - [Node.js (v22.12.0)](<https://nodejs.org/en/>)
 - [npm (v10.9.2)](https://www.npmjs.com/)
-- [Express (v4.21.2)](https://expressjs.com/)
-- [Docker (v28.1.1)](https://www.docker.com/)
-- [Docker Desktop (v4.41.2)](https://www.docker.com/products/docker-desktop/)
+- [Express (v4.22.1)](https://expressjs.com/)
+- [Docker (v29.4.2)](https://www.docker.com/)
+- [Docker Desktop (v4.73.1)](https://www.docker.com/products/docker-desktop/)
+- [YAML (v2.9.0)](https://www.npmjs.com/package/yaml)
+- [Swagger-ui-express (v5.0.1)](https://www.npmjs.com/package/swagger-ui-express)
 
 Ferramentas usadas no desenvolvimento do projeto:
-- [VSCode (v1.96.3)](https://code.visualstudio.com/)
+- [VSCode (v1.119.1)](https://code.visualstudio.com/)
 - [Insomnia(v10.3.0)](https://insomnia.rest/)
-- [Yarn (v1.22.21)](https://classic.yarnpkg.com/lang/en/)
-- [Nodemon (v3.1.9)](https://www.npmjs.com/package/nodemon)
-- ESLint
+- [Yarn (v1.22.22)](https://classic.yarnpkg.com/lang/en/)
+- [Nodemon (v3.1.14)](https://www.npmjs.com/package/nodemon)
+- ESLint (v9.29.0)
 - EditorConfig
 
 ## :computer: Funcionalidades e Demonstração da Aplicação
@@ -66,9 +68,12 @@ $ yarn install
 $ yarn dev
 ```
 
-No Insomina testar as rotas GET, POST, PUT e DELETE com a seguintes URLs:
+No Postman/Insomina testar as rotas GET, POST, PUT e DELETE com a seguintes URLs:
 - http://localhost:3000/contacts
 - http://localhost:3000/categories
+
+Para testar com Swagger, acessar a documentação:
+- http://localhost:3000/api-docs
 
 ## Pessoas Desenvolvedoras do Projeto
 

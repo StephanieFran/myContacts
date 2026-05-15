@@ -6,12 +6,14 @@
   "author": "Stephanie de França",
   "license": "MIT",
   "scripts": {
-    "dev": "npx nodemon src/index.js"
+    "dev": "npx nodemon --watch-path=./openapi.yaml src/index.js"
   },
   "dependencies": {
     "express": "4.22.1",
     "express-async-errors": "^3.1.1",
-    "pg": "8.20.0"
+    "pg": "8.20.0",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "2.9.0"
   },
   "devDependencies": {
     "@eslint/js": "9.29.0",

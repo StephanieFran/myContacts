@@ -1,0 +1,382 @@
+openapi: 3.0.4
+
+info:
+  title: myContacts OpenAPI
+  description: REST API for creating and categorizing contacts
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Development
+
+components:
+  schemas:
+    Contact:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        id:
+          type: string
+          example: UUID
+        name:
+          type: string
+          example: John Doe
+        email:
+          type: string
+          example: johndoe@email.com
+        phone:
+          type: string
+          example: 999999999
+        category_id:
+          type: string
+          example: UUID
+        category_name:
+          type: string
+          example: SocialMedia
+    ContactToChange:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+          example: John Doe
+        email:
+          type: string
+          example: johndoe@email.com
+        phone:
+          type: string
+          example: 999999999
+        category_id:
+          type: string
+          example: UUID
+    Category:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+            type: string
+            example: UUID
+        name:
+            type: string
+            example: SocialMedia
+    CategoryToChange:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+            type: string
+            example: SocialMedia
+  responses:
+    ListContact:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                    $ref: "#/components/schemas/Contact"
+    ListCategory:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                    $ref: "#/components/schemas/Category"
+    ContactCreated:
+      description: Contact created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+    ContactUpdated:
+      description: Contact updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+    CategoryCreated:
+      description: Category created.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
+    CategoryUpdated:
+      description: Category updated.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string | null
+                example: null
+              data:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
+    ResourceDeleted:
+      description: Resource deleted successfully
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          example:
+            statusCode: 400
+            message: "Required parameters missing."
+    Unauthorized:
+      description: Invalid or missing authentication token
+      content:
+        application/json:
+          example:
+            statusCode: 401
+            message: "Unauthorized"
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          example:
+            statusCode: 404
+            message: "Record not found."
+  requestBodies:
+    CreateContactBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Contact"
+    UpdateContactBody:
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ContactToChange"
+    CategoryBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Category"
+    UpdateCategoryBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CategoryToChange"
+
+tags:
+  - name: Health
+    description: Testing API availability
+  - name: Contacts
+    description: Contacts management endpoints
+  - name: Categories
+    description: Categories management endpoints
+
+paths:
+  /ping:
+    get:
+      tags:
+        - Health
+      summary: Test API Health
+      responses:
+        "200":
+          description: Pong response
+          content:
+            appplication/json:
+              schema:
+                type: object
+                properties:
+                  pong:
+                    type: boolean
+                    example: true
+  /contacts:
+    get:
+      tags:
+        - Contacts
+      summary: List all contacts
+      responses:
+        "200":
+          $ref: "#/components/responses/ListContact"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      tags:
+        - Contacts
+      summary: Create a new contact
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateContactBody"
+      responses:
+        "201":
+          $ref: "#/components/responses/ContactCreated"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /contacts/{id}:
+    get:
+      tags:
+        - Contacts
+      summary: Get contact by ID
+      responses:
+        "200":
+          $ref: "#/components/responses/ListContact"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    put:
+      tags:
+        - Contacts
+      summary: Update contact by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Contact ID
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateContactBody"
+      responses:
+        "200":
+          $ref: "#/components/responses/ContactUpdated"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    delete:
+      tags:
+        - Contacts
+      summary: Delete an Contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Contact ID
+          schema:
+            type: string
+      responses:
+        "204":
+          $ref: "#/components/responses/ResourceDeleted"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /categories:
+    get:
+      tags:
+        - Categories
+      summary: List all categories
+      responses:
+        "200":
+          $ref: "#/components/responses/ListCategory"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      tags:
+        - Categories
+      summary: Create a new category
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateCategoryBody"
+      responses:
+        "201":
+          $ref: "#/components/responses/CategoryCreated"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /categories/{id}:
+    get:
+      tags:
+        - Categories
+      summary: Get category by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Category ID
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/ListCategory"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    put:
+      tags:
+        - Categories
+      summary: Update category by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Category ID
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/UpdateCategoryBody"
+      responses:
+        "200":
+          $ref: "#/components/responses/CategoryUpdated"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    delete:
+      tags:
+        - Categories
+      summary: Delete an Category
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Category ID
+          schema:
+            type: string
+      responses:
+        "204":
+          $ref: "#/components/responses/ResourceDeleted"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
