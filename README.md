@@ -12,7 +12,7 @@ Ferramentas usadas na construção do projeto:
 - [Express (v4.22.1)](https://expressjs.com/)
 - [Docker (v29.4.2)](https://www.docker.com/)
 - [Docker Desktop (v4.73.1)](https://www.docker.com/products/docker-desktop/)
-- [YAML (v2.9.0)](https://www.npmjs.com/package/yaml)
+- [YAML (v2.9.1)](https://www.npmjs.com/package/yaml)
 - [Swagger-ui-express (v5.0.1)](https://www.npmjs.com/package/swagger-ui-express)
 
 Ferramentas usadas no desenvolvimento do projeto:
@@ -80,4 +80,4 @@ Para testar com Swagger, acessar a documentação:
 Stephanie de França
 
 ## Licenses
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+_NoLicenses_
